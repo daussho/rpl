@@ -6,25 +6,26 @@
 ?>
 <!DOCTYPE html>
 <html>
-   <head>
-      <title>Login page</title>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-      <link rel="stylesheet" href="../bootstrap/bootstrap.min.css">
-   </head>
-   <body>
-      <?php
-       		@include('navbar/navbar-supervisor')
-      ?>
+   	<head>
+		<title>Login page</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	</head>
+	<body>
       </br></br></br>
       <center>
          <div class="container-fluid">
             <div class="row">
                <div class="col-sm-4"></div>
                <div class="col-sm-4">
+           	 	  <img src="{{URL::asset('/files/logo.png')}}">
+           	 	  <p>
                   <div class="panel panel-default" align="left">
-                     <div class="panel-heading"><h2>User Login</div>
+                     <div class="panel-heading"><h2>Login</div>
                      <div class="panel-body">
                         <?php
                           if(isset($_SESSION['msg'])){
@@ -35,7 +36,7 @@
                         <br>
                         <form action="cek-user-login.php" method="POST">
                            <div class="form-group">
-                              <input type="text" class="form-control" name="id" placeholder="User ID" required>
+                              <input type="text" class="form-control" name="id" placeholder="ID" required>
                               </br>
                               <input type="password" class="form-control" name="pwd" placeholder="Password" required>
                               </br>

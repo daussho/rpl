@@ -11,6 +11,18 @@
 |
 */
 
+Route::get('/tes', function () {
+    return view('navbar/navbar-supervisor');
+});
+
 Route::get('/', function () {
     return view('login');
+});
+
+Route::get('/home', function () {
+    return view('home');
+});
+
+Route::get('/status', function () {
+    return view('status');
 });
