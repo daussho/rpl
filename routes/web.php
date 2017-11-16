@@ -12,7 +12,7 @@
 */
 
 Route::get('/tes', function () {
-    return view('navbar/navbar-supervisor');
+    return view('tes');
 });
 
 Route::get('/', function () {

@@ -1,0 +1,16 @@
+[{
+    
+    "NIP": "18215000",
+    "Gaji Pokok": "1000000",
+    "Status": "Sudah dibayar",
+}, {
+    
+    "NIP": "18215001",
+    "Gaji Pokok": "1000000",
+    "Status": "Belum dibayar",
+}, {
+    
+    "NIP": "18215002",
+    "Gaji Pokok": "1000000",
+    "Status": "Sudah dibayar",
+}]
