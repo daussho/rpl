@@ -11,14 +11,16 @@
 |
 */
 
-Route::resource('/gajipokok','GajiPokokBulananController');
+Route::post('/gajipokok/create',['as'=> 'form_url','uses'=>'GajiPokokBulananController@store']);
+
+Route::get('/gajipokok/create','GajiPokokBulananController@create');
 
 Route::get('/tes', function () {
     return view('tes');
 });
 
 Route::get('/', function () {
-    return view('login');
+    return view('welcome');
 });
 
 Route::get('/home', function () {
