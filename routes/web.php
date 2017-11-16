@@ -15,12 +15,18 @@ Route::post('/gajipokok/create',['as'=> 'form_url','uses'=>'GajiPokokBulananCont
 
 Route::get('/gajipokok/create','GajiPokokBulananController@create');
 
+Route::get('/gajipokok/edit/{id}','GajiPokokBulananController@edit');
+
+Route::post('/gajipokok/edit','GajiPokokBulananController@update');
+
+Route::get('/gajipokok/delete/{id}','GajiPokokBulananController@destroy');
+
 Route::get('/tes', function () {
     return view('tes');
 });
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });
 
 Route::get('/home', function () {

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\GajiPokokBulanan;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class GajiPokokBulananController extends Controller
 {
@@ -15,7 +16,6 @@ class GajiPokokBulananController extends Controller
 	}
 	//Mengarahkan ke halaman create
 	public function create(){
-	//	DB::insert('INSERT INTO gaji_pokok_bulanans (nip, bulan,nominal ) values (?, ?,?)', [$request->nip, $request->, $request->nominal]);
 		return view('gajipokokcreate');
 	}
 	//Melakukan store dari request form
@@ -28,16 +28,18 @@ class GajiPokokBulananController extends Controller
         return redirect('/');
 	}
 	//mengarahkan ke halaman edit
-	public function edit(){
-
+	public function edit($id){
+		$gajipokok = DB::select('SELECT id, nip,bulan,nominal FROM gaji_pokok_bulanans WHERE id=?',[$id]);
+		
+		return view('gajipokokedit',["gajipokok"=>$gajipokok]);
 	}
 	//melakukan update pada model
-	public function update($id){
-		DB::update('UPDATE gaji_pokok_bulanans SET nominal=? WHERE nip= ? AND bulan=?', [$nominal, $nip, $bulan]);
+	public function update(Request $request){
+		DB::update('UPDATE gaji_pokok_bulanans SET nominal=? WHERE nip= ? AND bulan=?', [$request->nominal, $request->nip, $request->bulan]);
 	}
 	//Mendelete record
 	public function destroy($id){
-		$deleted = DB::delete('DELETE FROM users WHERE id=?',[$id]);
+		$deleted = DB::delete('DELETE FROM gaji_pokok_bulanans WHERE id=?',[$id]);
 
 	}
 
