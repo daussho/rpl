@@ -11,6 +11,8 @@
 |
 */
 
+Route::resource('/gajipokok','GajiPokokBulananController');
+
 Route::get('/tes', function () {
     return view('tes');
 });
