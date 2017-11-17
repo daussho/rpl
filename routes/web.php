@@ -60,6 +60,20 @@ Route::get('/admin/add', function () {
 
 Route::post('/admin/add', ['as'=> 'form_url','uses'=>'AccountController@register']);
 
+Route::get('/admin/delete', function () {
+    if(empty($_SESSION['login_user'])){
+    	return redirect('login');
+    } else {
+    	if($_SESSION['tipe']==1){
+    		return view('/admin/AddAccount');
+    	} else {
+    		return redirect('/');
+    	}
+    }
+});
+
+Route::post('/admin/delete', ['as'=> 'form_url','uses'=>'AccountController@register']);
+
 Route::get('/logout', function(){
 	Session::flush();
 	return redirect('/login');
