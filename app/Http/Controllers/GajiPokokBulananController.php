@@ -29,8 +29,7 @@ class GajiPokokBulananController extends Controller
 	}
 	//mengarahkan ke halaman edit
 	public function edit($id){
-		$gajipokok = DB::select('SELECT id, nip,bulan,nominal FROM gaji_pokok_bulanans WHERE id=?',[$id]);
-		
+		$gajipokok= DB::table('gaji_pokok_bulanans')->select('id', 'nip', 'bulan', 'nominal')->where('id',$id)->get();
 		return view('gajipokokedit',["gajipokok"=>$gajipokok]);
 	}
 	//melakukan update pada model
