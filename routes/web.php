@@ -60,19 +60,11 @@ Route::get('/admin/add', function () {
 
 Route::post('/admin/add', ['as'=> 'form_url','uses'=>'AccountController@register']);
 
-Route::get('/admin/delete', function () {
-    if(empty($_SESSION['login_user'])){
-    	return redirect('login');
-    } else {
-    	if($_SESSION['tipe']==1){
-    		return view('/admin/DeleteAccount');
-    	} else {
-    		return redirect('/');
-    	}
-    }
-});
+Route::get('/admin/list','AccountController@index');
 
-Route::post('/admin/delete', ['as'=> 'form_url','uses'=>'AccountController@register']);
+Route::post('/admin/delete',['as'=> 'form_url','uses'=>'AccountController@delete']);
+
+#Route::post('/admin/delete', ['as'=> 'form_url','uses'=>'AccountController@register']);
 
 Route::get('/logout', function(){
 	Session::flush();
