@@ -11,12 +11,12 @@ class GajiPokokBulananController extends Controller
 {
     //mengarahkan ke halaman retrieve
 	public function index(){
-		$gajipokok = DB::select('SELECT id, nip,bulan,nominal FROM gaji_pokok_bulanans');
+		$gajipokok = DB::table('gaji_pokok_bulanans')->select('nip','bulan','nominal')->get();
         return view('gajipokok.index', ['gajipokok' => $gajipokok]);
 	}
 	//Mengarahkan ke halaman create
 	public function create(){
-		return view('gajipokokcreate');
+		return view('gajipokok.create');
 	}
 	//Melakukan store dari request form
 	public function store(Request $request){
@@ -30,7 +30,7 @@ class GajiPokokBulananController extends Controller
 	//mengarahkan ke halaman edit
 	public function edit($id){
 		$gajipokok= DB::table('gaji_pokok_bulanans')->select('id', 'nip', 'bulan', 'nominal')->where('id',$id)->get();
-		return view('gajipokokedit',["gajipokok"=>$gajipokok]);
+		return view('gajipokok.edit',["gajipokok"=>$gajipokok]);
 	}
 	//melakukan update pada model
 	public function update(Request $request){
