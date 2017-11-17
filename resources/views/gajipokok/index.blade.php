@@ -1,9 +1,4 @@
-<?php
-   session_start();
-   if(empty($_SESSION['login_user'])){
-      header('Location: login.blade.php');
-   }
-?>
+
 <!DOCTYPE html>
 <html>
    <head>
@@ -18,9 +13,13 @@
       </style>
 	</head>
 	<body>
+
       <div class="none">
          {{$no=0}}  
       </div>
+      <?php
+            @include_once(app_path() . '/navbar/navbar.php');
+      ?>
       <div class="container">
 
          <button type="button" class="btn btn-info" onclick="window.location='{{ url("gajipokok/create") }}'">+ Add</button>

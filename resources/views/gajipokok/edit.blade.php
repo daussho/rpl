@@ -1,9 +1,4 @@
-<?php
-   session_start();
-   if(empty($_SESSION['login_user'])){
-      header('Location: login.blade.php');
-   }
-?>
+
 <!DOCTYPE html>
 <html>
    	<head>
@@ -13,22 +8,28 @@
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 	</head>
 	<body>
+      <?php
+            @include_once(app_path() . '/navbar/navbar.php');
+      ?>
       <div class="container">
+         <h2>Edit Gaji Pokok</h2>
          <form action="/gajipokok/edit" method="post">
-            <div class="form-group">
-               @foreach($gajipokok as $result)
-               <label>NIP</label>
-               <input type="text" name="nip" readonly class="form-control-plaintext" value="{{$result->nip}}">
-               <br>
-               <label>Bulan</label>
-               <input type="text" name="bulan" readonly class="form-control-plaintext" value="{{$result->bulan}}">
+            @foreach($gajipokok as $result)
+               <div class="form-group">
+                  <label for="nip">NIP</label>
+                  <input type="text" name="nip" id="nip" readonly class="form-control" value="{{$result->nip}}">
+               </div>
+               <div class="form-group">
+                  <label for="bulan">Bulan</label>
+                  <input type="text" name="bulan" id="bulan" readonly class="form-control" value="{{$result->bulan}}">
+               </div>
                @endforeach
-               <br>
-               <label>Nominal</label>
-               <input type="text" name="nominal" class="form-control"><br>
+               <div class="form-group">
+                  <label for="nominal">Nominal</label>
+                  <input type="text" id="nominal" name="nominal" class="form-control"><br>
+               </div>
                <input type="submit" value="Submit">
                {{ csrf_field() }}
-            </div>
          </form>
       </div>
    </body>
