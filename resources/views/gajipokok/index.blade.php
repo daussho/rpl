@@ -2,17 +2,17 @@
 <!DOCTYPE html>
 <html>
    <head>
-		<title>Home</title>
+		<title>Data Gaji Pokok</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-      </style>
-	</head>
-	< body>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
-      <div class="none">
+	</head>
+	<body>
+
+      <div style="display: none">
          {{$no=0}}  
       </div>
-      @include('includes.head')
       <?php
             @include_once(app_path() . '/navbar/navbar.php');
       ?>

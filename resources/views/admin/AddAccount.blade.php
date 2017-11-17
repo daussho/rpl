@@ -1,9 +1,3 @@
-<?php
-   if(empty($_SESSION['login_user'])){
-      return redirect()->route('login');
-   }
-?>
-
 <!DOCTYPE html>
 <html>
    	<head>
@@ -33,7 +27,7 @@
                           }
                         ?>
                         <br>
-                        <form action = "#" method="POST">
+                        <form action = "/admin/add" method="POST">
                            <div class="form-group">
                               <input type="text" class="form-control" name="id" placeholder="ID" required>
                               </br>
