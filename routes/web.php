@@ -47,15 +47,15 @@ Route::get('/status', function () {
 Route::post('/login', ['as'=> 'form_url','uses'=>'AccountController@check']);
 
 Route::get('/admin/add', function () {
-    if(empty($_SESSION['login_user'])){
-    	return redirect('login');
-    } else {
-    	if($_SESSION['tipe']==1){
+//    if(empty($_SESSION['login_user'])){
+  //  	return redirect('login');
+    ///} else {
+    	//if($_SESSION['tipe']==1){
     		return view('/admin/AddAccount');	
-    	} else {
-    		return redirect('/');
-    	}
-    }
+    	//} else {
+    	//	return redirect('/');
+    	//}
+    //}
 });
 
 Route::post('/admin/add', ['as'=> 'form_url','uses'=>'AccountController@register']);
