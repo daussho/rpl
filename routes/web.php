@@ -27,12 +27,13 @@ Route::get('/tes', function () {
     return view('tes');
 });
 
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
-
 Route::get('/', function () {
-    return view('home');
+    if(empty($_SESSION['login_user'])){
+    	return view('login');
+    } else {
+    	return view('home');
+    }
+    
 });
 
 Route::get('/status', function () {
@@ -45,6 +46,12 @@ Route::get('/admin/add', function () {
     return view('/admin/AddAccount');
 });
 
+Route::post('/admin/add', ['as'=> 'form_url','uses'=>'AccountController@register']);
+
+Route::get('/logout', function(){
+	Session::flush();
+	return redirect('/login');
+});
 
 ?>
 
