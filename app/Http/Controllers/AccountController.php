@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\DB;
 class AccountController extends Controller{
 
 	public function check(Request $request){
+		if (!is_numeric($request->id)){
+			$_SESSION['msg'] = "ID harus berupa angka!";
+			return redirect('/login');
+		}
+
 		$pass = hash('sha256', $request->pwd);
 		$type = DB::select("select tipe from users where id = ".$request->id." AND password = '".$pass."';");
 		if ($type != null){
@@ -23,10 +28,10 @@ class AccountController extends Controller{
 	}
 	
 	public function index(){
-		$user = DB::table('users')
+		$users = DB::table('users')
 			->select('id', 'tipe')
 			->get();
-        return view('admin/delete.index', ['admin/delete' => $user]);
+        return view('admin/DeleteAccount', ['users' => $users]);
 	}
 
 	public function register(Request $request){
@@ -45,9 +50,16 @@ class AccountController extends Controller{
 		return redirect('/admin/add');
 	}
 
+	public function delete(Request $request){
+		DB::table('users')->where('id', '=', $request->choice)->delete();
+		$_SESSION['msg'] = "Delete akun ".$request->choice." berhasil!";
+
+		return redirect('/admin/list');
+	}
+
 	public function logout(){
-		session_unset();
-		return redirect('/login');
+		session_destroy();
+		return redirect('/');
 	}
 }
 
