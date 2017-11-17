@@ -21,7 +21,10 @@
       <div class="none">
          {{$no=0}}  
       </div>
-      <div class="container">         
+      <div class="container">
+
+         <button type="button" class="btn btn-info" onclick="window.location='{{ url("gajipokok/create") }}'">+ Add</button>
+         <br><br><br>         
          <table class="table table-striped" >
             <thead class="thead-inverse">
                <tr align="center">
