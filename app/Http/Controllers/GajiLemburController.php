@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\DB;
 
 class GajiLemburController extends Controller
 {
-	    //mengarahkan ke halaman retrieve
+	//mengarahkan ke halaman retrieve
 	public function index(){
-		$gajipokok = DB::table('gaji_lemburs')->select('nip','bulan','gaji_lembur_jam','gaji_lembur','jam_lembur')->get();
+		$gajilembur = DB::table('gaji_lemburs')->select('id','nip','bulan','gaji_lembur_jam','gaji_lembur','jam_lembur')->get();
         return view('gajilembur.index', ['gajilembur' => $gajilembur]);
 	}
 	//Mengarahkan ke halaman create
@@ -32,7 +32,7 @@ class GajiLemburController extends Controller
 	//mengarahkan ke halaman edit
 	public function edit($id){
 		$gajilembur= 
-			DB::table('gaji_pokok_bulanans')
+			DB::table('gaji_lemburs')
 			->select('nip', 'bulan', 'gaji_lembur_jam','gaji_lembur','jam_lembur')
 			->where('id',$id)
 			->get();

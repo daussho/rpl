@@ -5,7 +5,8 @@
 		<title>Data Gaji Pokok</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
 	</head>
 	<body>
@@ -17,9 +18,11 @@
             @include_once(app_path() . '/navbar/navbar.php');
       ?>
       <div class="container">
-
+         <br>
+         <h2>Data Gaji Pokok</h2>
+         <br><br> 
          <button type="button" class="btn btn-info" onclick="window.location='{{ url("gajipokok/create") }}'">+ Add</button>
-         <br><br><br>         
+         <br><br>        
          <table class="table table-striped" >
             <thead class="thead-inverse">
                <tr align="center">

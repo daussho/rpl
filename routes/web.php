@@ -23,6 +23,22 @@ Route::post('/gajipokok/edit','GajiPokokBulananController@update');
 
 Route::get('/gajipokok/delete/{id}','GajiPokokBulananController@destroy');
 
+//Ini controller gaji lembur
+
+Route::get('/gajilembur','GajiLemburController@index');
+
+Route::post('/gajilembur/create',['as'=> 'form_url','uses'=>'GajiLemburController@store']);
+
+Route::get('/gajilembur/create','GajiLemburController@create');
+
+Route::get('/gajilembur/edit/{id}','GajiLemburController@edit');
+
+Route::post('/gajilembur/edit','GajiLemburController@update');
+
+Route::get('/gajilembur/delete/{id}','GajiLemburController@destroy');
+
+
+
 Route::get('/tes', function () {
     return view('tes');
 });
@@ -47,17 +63,6 @@ Route::get('/status', function () {
 Route::post('/login', ['as'=> 'form_url','uses'=>'AccountController@check']);
 
 Route::get('/admin/add', function () {
-<<<<<<< HEAD
-//    if(empty($_SESSION['login_user'])){
-  //  	return redirect('login');
-    ///} else {
-    	//if($_SESSION['tipe']==1){
-    		return view('/admin/AddAccount');	
-    	//} else {
-    	//	return redirect('/');
-    	//}
-    //}
-=======
     if(empty($_SESSION['login_user'])){
     	return redirect('login');
     } else {
@@ -67,7 +72,6 @@ Route::get('/admin/add', function () {
     		return redirect('/');
     	}
     }
->>>>>>> 27f95af35440404368bd5be8df9a8167c5d794bd
 });
 
 Route::post('/admin/add', ['as'=> 'form_url','uses'=>'AccountController@register']);

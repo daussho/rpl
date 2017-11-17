@@ -15,7 +15,7 @@
       ?>
       <div class="container">
         <h2>Buat Gaji Lembur Baru</h2>
-        <form action="/gajipokok/create" method="post">
+        <form action="/gajilembur/create" method="post">
           <div class="form-group">
             <label for="nip">NIP:</label>
             <input type="text" class="form-control" id="nip" placeholder="Masukkan NIP e.g. 12345" name="nip">
@@ -26,11 +26,11 @@
           </div>
           <div class="form-group">
             <label for="gajilemburjam">Gaji Lembur/Jam:</label>
-            <input type="text" class="form-control" id="gajilemburjam" placeholder="Masukkan jumlah gaji lembur per jamnnya " name="nominal">
+            <input type="text" class="form-control" id="gajilemburjam" placeholder="Masukkan jumlah gaji lembur per jamnnya " name="gaji_lembur_jam">
           </div>
           <div class="form-group">
-            <label for="gajilemburjam">Gaji Lembur/Jam:</label>
-            <input type="text" class="form-control" id="gajilemburjam" placeholder="Masukkan jumlah gaji lembur per jamnnya " name="nominal">
+            <label for="gajilemburjam">Jam Lembur:</label>
+            <input type="text" class="form-control" id="gajilemburjam" placeholder="Masukkan jumlah gaji lembur per jamnnya " name="jam_lembur">
           </div>
           <button type="submit" class="btn btn-default">Submit</button>
           {{ csrf_field() }}
