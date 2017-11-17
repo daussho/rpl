@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\DB;
 class AccountController extends Controller{
 
 	public function check(Request $request){
+		if (!is_numeric($request->id)){
+			$_SESSION['msg'] = "ID harus berupa angka!";
+			return redirect('/login');
+		}
+
 		$pass = hash('sha256', $request->pwd);
 		$type = DB::select("select tipe from users where id = ".$request->id." AND password = '".$pass."';");
 		if ($type != null){
@@ -53,8 +58,8 @@ class AccountController extends Controller{
 	}
 
 	public function logout(){
-		session_unset();
-		return redirect('/login');
+		session_destroy();
+		return redirect('/');
 	}
 }
 

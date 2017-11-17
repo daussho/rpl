@@ -66,10 +66,7 @@ Route::post('/admin/delete',['as'=> 'form_url','uses'=>'AccountController@delete
 
 #Route::post('/admin/delete', ['as'=> 'form_url','uses'=>'AccountController@register']);
 
-Route::get('/logout', function(){
-	Session::flush();
-	return redirect('/login');
-});
+Route::get('/logout', 'AccountController@logout');
 
 ?>
 
