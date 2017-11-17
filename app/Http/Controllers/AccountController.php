@@ -15,7 +15,6 @@ class AccountController extends Controller{
 			#session_start();
 			$_SESSION['login_user'] = $request->id;
 			$_SESSION['tipe'] = $type[0]->tipe;
-
 			return redirect('/');
 		} else {
 			$_SESSION['msg'] = "ID atau Password salah!";
@@ -24,10 +23,18 @@ class AccountController extends Controller{
 	}
 
 	public function register(Request $request){
-		$pass = hash('sha256', $request->pwd);
-		DB::table('users')->insert(
-		    ['id' => $request->id, 'password' => $pass, 'tipe' => $request->tipe]
-		);
+		if (!is_numeric($request->id)){
+			$_SESSION['msg'] = "ID harus berupa angka!";
+		} else {
+			$pass = hash('sha256', $request->pwd);
+			$type = DB::select("select tipe from users where id = ".$request->id." AND password = '".$pass."';");
+			if ($type != null){
+				$_SESSION['msg'] = "ID sudah terdaftar!";
+			} else {
+				DB::table('users')->insert(['id' => $request->id, 'password' => $pass, 'tipe' => $request->tipe]);	
+				$_SESSION['msg'] = "Registrasi berhasil!";
+			}
+		}
 		return redirect('/admin/add');
 	}
 
