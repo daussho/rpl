@@ -37,7 +37,18 @@ Route::post('/gajilembur/edit','GajiLemburController@update');
 
 Route::get('/gajilembur/delete/{id}','GajiLemburController@destroy');
 
+//Pembayaran Gaji
+Route::get('/pembayarangaji','PembayaranGajiController@index');
 
+Route::post('/pembayarangaji/create',['as'=> 'form_url','uses'=>'PembayaranGajiController@store']);
+
+Route::get('/pembayarangaji/create','PembayaranGajiController@create');
+
+Route::get('/pembayarangaji/edit/{id}','PembayaranGajiController@edit');
+
+Route::post('/pembayarangaji/edit','PembayaranGajiController@update');
+
+Route::get('/pembayarangaji/delete/{id}','PembayaranGajiController@destroy');
 
 Route::get('/tes', function () {
     return view('tes');
