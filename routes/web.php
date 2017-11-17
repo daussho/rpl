@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,9 +27,13 @@ Route::get('/tes', function () {
     return view('tes');
 });
 
+Route::get('/login', function () {
+    return view('login');
+});
+
 Route::get('/', function () {
     if(empty($_SESSION['login_user'])){
-    	return view('login');
+    	return redirect('login');
     } else {
     	return view('home');
     }

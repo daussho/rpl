@@ -12,7 +12,7 @@ class AccountController extends Controller{
 		$pass = hash('sha256', $request->pwd);
 		$type = DB::select("select tipe from users where id = ".$request->id." AND password = '".$pass."';");
 		if ($type != null){
-			session_start();
+			#session_start();
 			$_SESSION['login_user'] = $request->id;
 			$_SESSION['tipe'] = $type[0]->tipe;
 
