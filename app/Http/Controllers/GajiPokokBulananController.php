@@ -12,7 +12,7 @@ class GajiPokokBulananController extends Controller
     //mengarahkan ke halaman retrieve
 	public function index(){
 		$gajipokok = DB::table('gaji_pokok_bulanans')
-			->select('nip','bulan','nominal')
+			->select('id','nip','bulan','nominal')
 			->get();
         return view('gajipokok.index', ['gajipokok' => $gajipokok]);
 	}
