@@ -16,7 +16,11 @@
 	<body>
 
       <form action="/gajipokok/edit" method="post">
-         NIP: <br><input type="text" name="nip"><br>
+         NIP: 
+         @foreach($gajipokok as $result)
+            {{$result->nip}}
+         @endforeach
+         <input type="text" name="nip"><br>
          Bulan: <input type="text" name="bulan"><br>
          Nominal: <input type="text" name="nominal"><br>
          <input type="submit" value="Submit">

@@ -11,6 +11,8 @@
 |
 */
 
+Route::get('/gajipokok','GajiPokokBulananController@index');
+
 Route::post('/gajipokok/create',['as'=> 'form_url','uses'=>'GajiPokokBulananController@store']);
 
 Route::get('/gajipokok/create','GajiPokokBulananController@create');
