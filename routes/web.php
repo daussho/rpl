@@ -51,7 +51,7 @@ Route::get('/admin/add', function () {
     	return redirect('login');
     } else {
     	if($_SESSION['tipe']==1){
-    		return view('/admin/AddAccount');	
+    		return view('/admin/AddAccount');
     	} else {
     		return redirect('/');
     	}
@@ -65,7 +65,7 @@ Route::get('/admin/delete', function () {
     	return redirect('login');
     } else {
     	if($_SESSION['tipe']==1){
-    		return view('/admin/AddAccount');
+    		return view('/admin/DeleteAccount');
     	} else {
     		return redirect('/');
     	}

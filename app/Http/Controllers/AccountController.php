@@ -21,6 +21,13 @@ class AccountController extends Controller{
 		 	return redirect('/login');
 		}
 	}
+	
+	public function index(){
+		$user = DB::table('users')
+			->select('id', 'tipe')
+			->get();
+        return view('admin/delete.index', ['admin/delete' => $user]);
+	}
 
 	public function register(Request $request){
 		if (!is_numeric($request->id)){
