@@ -39,5 +39,12 @@ Route::get('/status', function () {
     return view('status');
 });
 
-Route::post('/login', ['as'=> 'form_url','uses'=>'LoginAuthController@check']);
+Route::post('/login', ['as'=> 'form_url','uses'=>'AccountController@check']);
+
+Route::get('/admin/add', function () {
+    return view('/admin/AddAccount');
+});
+
+
 ?>
+
