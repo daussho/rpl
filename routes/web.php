@@ -25,11 +25,11 @@ Route::get('/tes', function () {
     return view('tes');
 });
 
-Route::get('/', function () {
+Route::get('/login', function () {
     return view('login');
-});
+})->name('login');
 
-Route::get('/home', function () {
+Route::get('/', function () {
     return view('home');
 });
 
@@ -37,4 +37,5 @@ Route::get('/status', function () {
     return view('status');
 });
 
+Route::post('/login', ['as'=> 'form_url','uses'=>'LoginAuthController@check']);
 ?>
