@@ -12,11 +12,12 @@
          }
       </style>
 	</head>
-	<body>
+	< body>
 
       <div class="none">
          {{$no=0}}  
       </div>
+      @include('includes.head')
       <?php
             @include_once(app_path() . '/navbar/navbar.php');
       ?>
