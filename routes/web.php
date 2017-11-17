@@ -26,3 +26,5 @@ Route::get('/home', function () {
 Route::get('/status', function () {
     return view('status');
 });
+
+?>

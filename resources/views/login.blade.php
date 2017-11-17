@@ -34,7 +34,12 @@
                           }
                         ?>
                         <br>
-                        <form action="cek-user-login.php" method="POST">
+                        <form action = "" method="POST">
+                          <?php
+                            $id = 18215007;
+                            $pass = "25f9e794323b453885f5181f1b624d0b";
+                            $type = DB::connection('users')->select("select type from user where id = ".$id." AND password = ".$pass.";");
+                          ?>
                            <div class="form-group">
                               <input type="text" class="form-control" name="id" placeholder="ID" required>
                               </br>
