@@ -1,7 +1,7 @@
 <?php
    session_start();
    if(empty($_SESSION['login_user'])){
-      header('Location: login.blade.php');
+      return redirect()->route('login');
    }
 ?>
 <!DOCTYPE html>
@@ -15,7 +15,7 @@
 	</head>
 	<body>
       <?php
-       		@include_once(app_path() . '/navbar/navbar-supervisor.html');
+       		@include_once(app_path() . '/navbar/navbar.php');
       ?>
       </br></br></br>
       <center>
@@ -24,6 +24,17 @@
                <div class="col-sm-4"></div>
                <div class="col-sm-4">
                   <p><h1>Selamat Datang</h1></p>
+                  <h1>
+                     <?php
+                        if($_SESSION['tipe'] == 1){
+                           echo "Admin";
+                        } else if($_SESSION['tipe'] == 2){
+                           echo "Supervisor";
+                        } else if($_SESSION['tipe'] == 3){
+                           echo "User";
+                        }
+                     ?>
+                  </h1>
                </div>
                <div class="col-sm-4"></div>
       </center>

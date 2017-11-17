@@ -34,13 +34,14 @@
                           }
                         ?>
                         <br>
-                        <form action="cek-user-login.php" method="POST">
+                        <form action = "login" method="POST">
                            <div class="form-group">
                               <input type="text" class="form-control" name="id" placeholder="ID" required>
                               </br>
                               <input type="password" class="form-control" name="pwd" placeholder="Password" required>
                               </br>
                               <button type="submit" class="btn btn-default">Submit</button>
+                              {{ csrf_field() }}
                            </div>
                         </form>
                      </div>
