@@ -4,6 +4,6 @@
      } else if ($_SESSION['tipe'] == 2){
         include 'navbar-supervisor.html';
      }if ($_SESSION['tipe'] == 3){
-     	include 'navbar-supervisor.html';
+     	include 'navbar-user.html';
      }
 ?>

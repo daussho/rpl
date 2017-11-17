@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,10 +29,15 @@ Route::get('/tes', function () {
 
 Route::get('/login', function () {
     return view('login');
-})->name('login');
+});
 
 Route::get('/', function () {
-    return view('home');
+    if(empty($_SESSION['login_user'])){
+    	return redirect('login');
+    } else {
+    	return view('home');
+    }
+    
 });
 
 Route::get('/status', function () {
@@ -42,9 +47,37 @@ Route::get('/status', function () {
 Route::post('/login', ['as'=> 'form_url','uses'=>'AccountController@check']);
 
 Route::get('/admin/add', function () {
-    return view('/admin/AddAccount');
+    if(empty($_SESSION['login_user'])){
+    	return redirect('login');
+    } else {
+    	if($_SESSION['tipe']==1){
+    		return view('/admin/AddAccount');	
+    	} else {
+    		return redirect('/');
+    	}
+    }
 });
 
+Route::post('/admin/add', ['as'=> 'form_url','uses'=>'AccountController@register']);
+
+Route::get('/admin/delete', function () {
+    if(empty($_SESSION['login_user'])){
+    	return redirect('login');
+    } else {
+    	if($_SESSION['tipe']==1){
+    		return view('/admin/AddAccount');
+    	} else {
+    		return redirect('/');
+    	}
+    }
+});
+
+Route::post('/admin/delete', ['as'=> 'form_url','uses'=>'AccountController@register']);
+
+Route::get('/logout', function(){
+	Session::flush();
+	return redirect('/login');
+});
 
 ?>
 

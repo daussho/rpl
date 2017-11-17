@@ -1,9 +1,3 @@
-<?php
-   session_start();
-   if(empty($_SESSION['login_user'])){
-      return redirect()->route('login');
-   }
-?>
 <!DOCTYPE html>
 <html>
    	<head>
@@ -23,6 +17,8 @@
             <div class="row">
                <div class="col-sm-4"></div>
                <div class="col-sm-4">
+                  <img src="{{URL::asset('/files/logo.png')}}">
+                  </br></br></br>
                   <p><h1>Selamat Datang</h1></p>
                   <h1>
                      <?php

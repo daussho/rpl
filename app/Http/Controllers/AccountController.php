@@ -12,7 +12,7 @@ class AccountController extends Controller{
 		$pass = hash('sha256', $request->pwd);
 		$type = DB::select("select tipe from users where id = ".$request->id." AND password = '".$pass."';");
 		if ($type != null){
-			session_start();
+			#session_start();
 			$_SESSION['login_user'] = $request->id;
 			$_SESSION['tipe'] = $type[0]->tipe;
 
@@ -25,18 +25,16 @@ class AccountController extends Controller{
 
 	public function register(Request $request){
 		$pass = hash('sha256', $request->pwd);
-		#$type = DB::select("INSERT INTO 'users' ('id`, 'password', 'tipe') VALUES ("..", "..", "..");");
-		if ($type != null){
-			session_start();
-			$_SESSION['login_user'] = $request->id;
-			$_SESSION['tipe'] = $type[0]->tipe;
+		DB::table('users')->insert(
+		    ['id' => $request->id, 'password' => $pass, 'tipe' => $request->tipe]
+		);
+		return redirect('/admin/add');
+	}
 
-			return redirect('/');
-		} else {
-			$_SESSION['msg'] = "ID atau Password salah!";
-		 	return redirect('/login');
-		}
-	}	
+	public function logout(){
+		session_unset();
+		return redirect('/login');
+	}
 }
 
 ?>
