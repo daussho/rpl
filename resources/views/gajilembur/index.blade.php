@@ -21,10 +21,9 @@
       ?>
       <div class="container">
          <br>
-         <h2>Data Gaji Lembur</h2>
+         <h2><center>Data Gaji Lembur</center></h2>
          <br><br>
-         <button type="button" class="btn btn-info" onclick="window.location='{{ url("gajilembur/create") }}'">+ Add</button>
-                 
+         <br><br>                 
          <table class="table table-striped" >
             <thead class="thead-inverse">
                <tr align="center">
@@ -47,7 +46,6 @@
                   <td>{{$result->jam_lembur}}</td>
                   <td>{{$result->gaji_lembur}}</td>
                   <td><button type="button" class="btn btn-primary" onclick="window.location='{{ url("gajilembur/edit/$result->id") }}'">Edit</button></td>
-                  <td><button type="button" class="btn btn-danger" onclick="window.location='{{ url("gajilembur/delete/$result->id") }}'">Delete</button></td>
                </tr>
                @endforeach
             </tbody>
