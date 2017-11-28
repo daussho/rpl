@@ -21,17 +21,16 @@
          <br>
          <h2><center>Data Pembayaran Gaji Pegawai</center></h2>
          <br><br> 
-         <button type="button" class="btn btn-info" onclick="window.location='{{ url("pembayarangaji/create") }}'">+ Add</button>
          <br><br>        
          <table class="table table-striped" >
             <thead class="thead-inverse">
                <tr align="center">
-                  <th>No</th>
-                  <th>NIP</th>
-                  <th>Bulan</th>
-                  <th>Total Pembayaran</th>
-                  <th>Status Pembayaran</th>
-                  <th colspan="2">Action</th>
+                  <th><center>No</center></th>
+                  <th><center>NIP</center></th>
+                  <th><center>Bulan</center></th>
+                  <th><center>Total Pembayaran</center></th>
+                  <th><center>Status Pembayaran</center></th>
+                  <th colspan="2"><center>Action</center></th>
                </tr>
             </thead>
             <tbody align="center">
@@ -47,8 +46,8 @@
                   @if ($result->status_pembayaran==0)
                      <td>Belum Bayar</td>
                   @endif
-                  <td><button type="button" class="btn btn-primary" onclick="window.location='{{ url("pembayarangaji/edit/$result->id") }}'">Edit</button></td>
-                  <td><button type="button" class="btn btn-danger" onclick="window.location='{{ url("pembayarangaji/delete/$result->id") }}'">Delete</button></td>
+                  <td><button type="button" class="btn btn-primary" onclick="window.location='{{ url("pembayarangaji/edit/$result->id") }}'">Edit Status Pembayaran</button></td>
+                   <td><button type="button" class="btn btn-danger" onclick="window.location='{{ url("pembayarangaji/totalbiaya/$result->id") }}'">Check Total Pembayaran</button></td>
                </tr>
                @endforeach
             </tbody>
