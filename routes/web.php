@@ -49,6 +49,7 @@ Route::get('/pembayarangaji/edit/{id}','PembayaranGajiController@edit');
 Route::post('/pembayarangaji/edit','PembayaranGajiController@update');
 
 Route::get('/pembayarangaji/delete/{id}','PembayaranGajiController@destroy');
+Route::get('/pembayarangaji/totalbiaya/{id}','PembayaranGajiController@totalbiaya');
 
 Route::get('/tes', function () {
     return view('tes');
@@ -94,6 +95,7 @@ Route::post('/admin/delete',['as'=> 'form_url','uses'=>'AccountController@delete
 #Route::post('/admin/delete', ['as'=> 'form_url','uses'=>'AccountController@register']);
 
 Route::get('/logout', 'AccountController@logout');
+
 
 ?>
 
