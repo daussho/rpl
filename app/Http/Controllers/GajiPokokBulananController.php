@@ -27,6 +27,10 @@ class GajiPokokBulananController extends Controller
         $gajipokok->bulan =$request->bulan;
         $gajipokok->nominal =$request->nominal;
         $gajipokok->save();
+        //Nambahin data di daftar pembayaran gaji
+        DB::insert('insert into pembayaran_gajis(nip_bayar,bulan) select nip,bulan from gaji_pokok_bulanans');
+        //Nambahin data di daftar gaji lembur
+        DB::insert('insert into gaji_lemburs(nip,bulan) select nip,bulan from gaji_pokok_bulanans');
         return redirect('/gajipokok');
 	}
 	//mengarahkan ke halaman edit
@@ -45,7 +49,14 @@ class GajiPokokBulananController extends Controller
 	}
 	//Mendelete record
 	public function destroy($id){
+		$carinip= DB::table('gaji_pokok_bulanans')
+			->select('id', 'nip')
+			->where('id',$id)
+			->get()
+			->first();
 		$deleted = DB::delete('DELETE FROM gaji_pokok_bulanans WHERE id=?',[$id]);
+		$deleted1 = DB::delete('DELETE FROM gaji_lemburs WHERE nip=?', [$carinip -> nip] );
+		$deleted2= DB::delete('DELETE FROM pembayaran_gajis WHERE nip_bayar=?', [$carinip -> nip]);
 		return redirect('/gajipokok');
 	}
 
