@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
    <head>
@@ -20,7 +19,8 @@
       <div class="container">
          <br>
          <h2>Data Gaji Pokok</h2>
-         <br><br> 
+         <br><br>
+         <br><br>  
          <button type="button" class="btn btn-info" onclick="window.location='{{ url("gajipokok/create") }}'">+ Add</button>
          <br><br>        
          <table class="table table-striped" >
@@ -28,7 +28,7 @@
                <tr align="center">
                   <th>No</th>
                   <th>NIP</th>
-                  <th>Bulan</th>
+                  <th>Tanggal</th>
                   <th>Nominal Gaji Pokok</th>
                   <th colspan="2">Action</th>
                </tr>
