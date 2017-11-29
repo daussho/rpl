@@ -1,5 +1,3 @@
-  
-
 <!DOCTYPE html>
 <html>
    	<head>
@@ -18,15 +16,15 @@
         <form action="/gajipokok/create" method="post">
           <div class="form-group">
             <label for="nip">NIP:</label>
-            <input type="number" class="form-control" id="nip" placeholder="Masukkan NIP e.g. 12345" name="nip" required min="0" max="60000">
+            <input type="text" class="form-control" id="nip" placeholder="Masukkan NIP e.g. 12345" name="nip">
           </div>
           <div class="form-group">
-            <label for="bulan">Bulan:</label>
-            <input type="number" class="form-control" id="bulan" placeholder="Masukkan digit bulan e.g. 3" name="bulan" required min="1" max="12">
+            <label for="bulan">Tanggal:</label>
+            <input type="text" class="form-control" id="bulan" placeholder="Masukkan digit bulan e.g. 3" name="bulan">
           </div>
           <div class="form-group">
-            <label for="nominal">nominal:</label>
-            <input type="number" class="form-control" required id="nominal" placeholder="Masukkan jumlah gaji lembur per jamnnya" name="nominal" min="0" max="1000000000">
+            <label for="nominal">Nominal:</label>
+            <input type="text" class="form-control" id="nominal" placeholder="Masukkan jumlah nominal gaji pokok " name="nominal">
           </div>
           <button type="submit" class="btn btn-default">Submit</button>
           {{ csrf_field() }}
