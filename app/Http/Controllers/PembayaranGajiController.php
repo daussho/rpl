@@ -58,6 +58,28 @@ class PembayaranGajiController extends Controller
 		
 		return redirect('/pembayarangaji');
 	}
+
+	public function resetPembayaranGaji(){
+		$pengecualian=  DB::table('pembayaran_gajis')
+			->select('id', 'nip_bayar', 'bulan', 'total_pembayaran','status_pembayaran')
+			-> where('status_pembayaran', 0)
+			-> get();
+			
+		if ($pengecualian -> isEmpty())	{
+			DB::update('UPDATE pembayaran_gajis SET status_pembayaran=0 ');
+			DB::update('UPDATE gaji_lemburs SET gaji_lembur=0, jam_lembur=0 ');
+			$results= DB::table('gaji_pokok_bulanans')
+				->select('nip','nominal')
+				->get();
+			foreach ($results as $result) {
+				DB::update('UPDATE pembayaran_gajis SET total_pembayaran=? WHERE nip_bayar=?', [$result->nominal, $result->nip]);
+		}
+		} else {
+			\Session::flash('flash_message','Warning!! Terdapat karyawan yang belum dibayar. Resetting hanya bisa dilakukan jika semua karyawan sudah dibayar');
+		}
+		
+		return redirect('/pembayarangaji');
+	}
 	
 	//melakukan update pada model
 	public function update(Request $request){
