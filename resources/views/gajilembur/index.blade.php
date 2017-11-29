@@ -29,7 +29,7 @@
                <tr align="center">
                   <th>No</th>
                   <th>NIP</th>
-                  <th>Bulan</th>
+                  <th>Tanggal</th>
                   <th>Gaji Lembur/Jam</th>
                   <th>Jam Lembur</th>
                   <th>Total Gaji Lembur</th>
