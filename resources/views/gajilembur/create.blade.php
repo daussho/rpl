@@ -18,19 +18,19 @@
         <form action="/gajilembur/create" method="post">
           <div class="form-group">
             <label for="nip">NIP:</label>
-            <input type="text" class="form-control" id="nip" placeholder="Masukkan NIP e.g. 12345" name="nip">
+            <input type="text" class="form-control" id="nip" placeholder="Masukkan NIP e.g. 12345" name="nip" required min="0" max="60000">
           </div>
           <div class="form-group">
             <label for="bulan">Bulan:</label>
-            <input type="text" class="form-control" id="bulan" placeholder="Masukkan digit bulan e.g. 3" name="bulan">
+            <input type="text" class="form-control" id="bulan" placeholder="Masukkan digit bulan e.g. 3" name="bulan" required min="1" max="12">
           </div>
           <div class="form-group">
             <label for="gajilemburjam">Gaji Lembur/Jam:</label>
-            <input type="text" class="form-control" id="gajilemburjam" placeholder="Masukkan jumlah gaji lembur per jamnnya " name="gaji_lembur_jam">
+            <input type="text" class="form-control" id="gajilemburjam" placeholder="Masukkan jumlah gaji lembur per jamnnya" required min="0" max="1000000000" name="gaji_lembur_jam">
           </div>
           <div class="form-group">
             <label for="gajilemburjam">Jam Lembur:</label>
-            <input type="text" class="form-control" id="gajilemburjam" placeholder="Masukkan jumlah gaji lembur per jamnnya " name="jam_lembur">
+            <input type="text" class="form-control" id="gajilemburjam" placeholder="Masukkan jumlah gaji lembur per jamnnya" name="jam_lembur" min="0" max="1000000000">
           </div>
           <button type="submit" class="btn btn-default">Submit</button>
           {{ csrf_field() }}

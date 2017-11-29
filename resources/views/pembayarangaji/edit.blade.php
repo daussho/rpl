@@ -17,16 +17,16 @@
             @foreach($pembayarangaji as $result)
                <div class="form-group">
                   <label for="nip">NIP</label>
-                  <input type="text" name="nip" id="nip" readonly class="form-control" value="{{$result->nip}}">
+                  <input type="number" name="nip" id="nip" readonly class="form-control" value="{{$result->nip}}">
                </div>
                <div class="form-group">
                   <label for="bulan">Bulan</label>
-                  <input type="text" name="bulan" id="bulan" readonly class="form-control" value="{{$result->bulan}}">
+                  <input type="number" name="bulan" id="bulan" readonly class="form-control" value="{{$result->bulan}}">
                </div>
                @endforeach
                <div class="form-group">
                   <label for="total_pembayaran">Total Pembayaran</label>
-                  <input type="text" id="total_pembayaran" name="total_pembayaran" class="form-control"><br>
+                  <input type="number" id="total_pembayaran" name="total_pembayaran" class="form-control"><br>
                </div>
                <div class="form-group">
                   <label for="status_pembayaran">Status Pembayaran</label>

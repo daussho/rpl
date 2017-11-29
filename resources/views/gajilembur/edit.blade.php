@@ -19,21 +19,21 @@
             @foreach($gajilembur as $result)
                <div class="form-group">
                   <label for="nip">NIP</label>
-                  <input type="text" name="nip" id="nip" readonly class="form-control" value="{{$result->nip}}">
+                  <input type="number" name="nip" id="nip" readonly class="form-control" value="{{$result->nip}}">
                </div>
                <div class="form-group">
                   <label for="bulan">Bulan</label>
-                  <input type="text" name="bulan" id="bulan" readonly class="form-control" value="{{$result->bulan}}">
+                  <input type="number" name="bulan" id="bulan" readonly class="form-control" value="{{$result->bulan}}">
                </div>
                <div class="form-group">
                   <label for="gajilemburjam">Gaji Lembur/Jam</label>
-                  <input type="text" name="gaji_lembur_jam" id="gajilemburjam" class="form-control" value="{{$result->gaji_lembur_jam}}">
+                  <input type="number" required min="0" max="10000000000" name="gaji_lembur_jam" id="gajilemburjam" class="form-control" value="{{$result->gaji_lembur_jam}}">
                </div>
 
                @endforeach
                <div class="form-group">
                   <label for="jamlembur">Jam Lembur</label>
-                  <input type="text" id="jamlembur" name="jam_lembur" class="form-control"><br>
+                  <input type="number" id="jamlembur" min="0" name="jam_lembur" class="form-control"><br>
                </div>
                <input type="submit" value="Submit">
                {{ csrf_field() }}
