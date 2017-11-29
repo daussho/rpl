@@ -23,14 +23,15 @@ class GajiPokokBulananController extends Controller
 	//Melakukan store dari request form
 	public function store(Request $request){
 		$gajipokok = new GajiPokokBulanan;
-        $gajipokok->nip= $request->nip;
-        $gajipokok->bulan =$request->bulan;
+        $gajipokok->nip=$nipbaru= $request->nip;
+        $gajipokok->bulan=$bulanbaru =$request->bulan;
         $gajipokok->nominal =$request->nominal;
+
         $gajipokok->save();
         //Nambahin data di daftar pembayaran gaji
-        DB::insert('insert into pembayaran_gajis(nip_bayar,bulan) select nip,bulan from gaji_pokok_bulanans');
+        DB::insert('insert into pembayaran_gajis(nip_bayar,bulan) values(?,?)',[$nipbaru, $bulanbaru]);
         //Nambahin data di daftar gaji lembur
-        DB::insert('insert into gaji_lemburs(nip,bulan) select nip,bulan from gaji_pokok_bulanans');
+        DB::insert('insert into gaji_lemburs(nip,bulan) select nip,bulan from gaji_pokok_bulanans where nip=?', [$nipbaru,$bulanbaru]);
         return redirect('/gajipokok');
 	}
 	//mengarahkan ke halaman edit
