@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
    <head>
@@ -10,7 +9,6 @@
 
 	</head>
 	<body>
-
       <div style="display: none">
          {{$no=0}}  
       </div>
@@ -21,13 +19,14 @@
          <br>
          <h2><center>Data Pembayaran Gaji Pegawai</center></h2>
          <br><br> 
-         <br><br>        
+         <button type="button" class="btn btn-info" onclick="window.location='{{ url("pembayarangaji/reset") }}'">+ Reset</button>
+         <br><br>      
          <table class="table table-striped" >
             <thead class="thead-inverse">
                <tr align="center">
                   <th><center>No</center></th>
                   <th><center>NIP</center></th>
-                  <th><center>Bulan</center></th>
+                  <th><center>Tanggal</center></th>
                   <th><center>Total Pembayaran</center></th>
                   <th><center>Status Pembayaran</center></th>
                   <th colspan="2"><center>Action</center></th>
@@ -50,6 +49,10 @@
                    <td><button type="button" class="btn btn-danger" onclick="window.location='{{ url("pembayarangaji/totalbiaya/$result->id") }}'">Check Total Pembayaran</button></td>
                </tr>
                @endforeach
+               @if(Session::has('flash_message'))
+                 <div class="alert alert-danger"><em> {!! session('flash_message') !!}</em></div>
+               @endif
+               </div>
             </tbody>
          </table>
       </div>
