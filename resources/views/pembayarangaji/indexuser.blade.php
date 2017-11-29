@@ -10,7 +10,6 @@
 
 	</head>
 	<body>
-
       <div style="display: none">
          {{$no=0}}  
       </div>
@@ -27,7 +26,7 @@
                <tr align="center">
                   <th><center>No</center></th>
                   <th><center>NIP</center></th>
-                  <th><center>Bulan</center></th>
+                  <th><center>Tanggal</center></th>
                   <th><center>Status Pembayaran</center></th>
                </tr>
             </thead>
