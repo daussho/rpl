@@ -16,6 +16,12 @@ class PembayaranGajiController extends Controller
 			->get();
         return view('pembayarangaji.index', ['pembayarangaji' => $pembayarangaji]);
 	}
+	public function indexuser(){
+		$pembayarangaji = DB::table('pembayaran_gajis')
+			->select('id','nip_bayar','bulan','total_pembayaran','status_pembayaran')
+			->get();
+        return view('pembayarangaji.indexuser', ['pembayarangaji' => $pembayarangaji]);
+	}
 	//Mengarahkan ke halaman create
 	public function create(){
 		return view('pembayarangaji.create');
@@ -42,7 +48,6 @@ class PembayaranGajiController extends Controller
 		if ($result->total_pembayaran != NULL) {
 			if ($result-> status_pembayaran == 1){
 				DB::update('UPDATE pembayaran_gajis SET status_pembayaran=0 WHERE nip_bayar= ? AND bulan=?', [$result->nip_bayar, $result->bulan]);
-				
 			} else {
 				DB::update('UPDATE pembayaran_gajis SET status_pembayaran=1 WHERE nip_bayar= ? AND bulan=?', [$result->nip_bayar, $result->bulan]);
 				DB::update('UPDATE gaji_lemburs SET gaji_lembur=0, jam_lembur = 0 WHERE nip= ? AND bulan=?', [$result->nip_bayar, $result->bulan]);
