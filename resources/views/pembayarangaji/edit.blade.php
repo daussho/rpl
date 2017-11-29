@@ -16,18 +16,18 @@
          <form action="/pembayarangaji/edit" method="post">
             @foreach($pembayarangaji as $result)
                <div class="form-group">
-                  <label for="nip">NIP</label>
-                  <input type="number" name="nip" id="nip" readonly class="form-control" value="{{$result->nip}}">
+                  <label for="nip_bayar">NIP</label>
+                  <input type="text" name="nip_bayar" id="nip_bayar" readonly class="form-control" value="{{$result->nip_bayar}}">
                </div>
                <div class="form-group">
-                  <label for="bulan">Bulan</label>
-                  <input type="number" name="bulan" id="bulan" readonly class="form-control" value="{{$result->bulan}}">
+                  <label for="bulan">Tanggal</label>
+                  <input type="text" name="bulan" id="bulan" readonly class="form-control" value="{{$result->bulan}}">
                </div>
-               @endforeach
                <div class="form-group">
                   <label for="total_pembayaran">Total Pembayaran</label>
-                  <input type="number" id="total_pembayaran" name="total_pembayaran" class="form-control"><br>
+                  <input type="text" name="total_pembayaran" readonly class="form-control" value="{{$result->total_pembayaran}}"><br>
                </div>
+               @endforeach
                <div class="form-group">
                   <label for="status_pembayaran">Status Pembayaran</label>
                   <input type="text" id="status_pembayaran" name="status_pembayaran" class="form-control"><br>
