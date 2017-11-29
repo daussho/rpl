@@ -17,7 +17,7 @@
             <div class="row">
                <div class="col-sm-4"></div>
                <div class="col-sm-4">
-                  <img src="{{URL::asset('/files/logo.png')}}">
+                  <img src="{{URL::asset('/files/logo.png')}}" height="100%" width="300px">
                   </br></br></br>
                   <p><h1>Selamat Datang</h1></p>
                   <h1>
