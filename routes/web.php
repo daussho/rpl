@@ -49,7 +49,10 @@ Route::get('/pembayarangaji/edit/{id}','PembayaranGajiController@edit');
 Route::post('/pembayarangaji/edit','PembayaranGajiController@update');
 
 Route::get('/pembayarangaji/delete/{id}','PembayaranGajiController@destroy');
+
 Route::get('/pembayarangaji/totalbiaya/{id}','PembayaranGajiController@totalbiaya');
+
+Route::get('/pembayarangaji/indexusers','PembayaranGajiController@indexuser');
 
 Route::get('/tes', function () {
     return view('tes');
