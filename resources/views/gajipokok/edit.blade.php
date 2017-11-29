@@ -21,7 +21,7 @@
                   <input type="text" name="nip" id="nip" readonly class="form-control" value="{{$result->nip}}">
                </div>
                <div class="form-group">
-                  <label for="bulan">Bulan</label>
+                  <label for="bulan">Tanggal</label>
                   <input type="text" name="bulan" id="bulan" readonly class="form-control" value="{{$result->bulan}}">
                </div>
                @endforeach
