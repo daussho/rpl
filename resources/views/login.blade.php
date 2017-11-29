@@ -16,10 +16,10 @@
             <div class="row">
                <div class="col-sm-4"></div>
                <div class="col-sm-4">
-           	 	  <img src="{{URL::asset('/files/logo.png')}}">
+           	 	  <img src="{{URL::asset('/files/logo.png')}}" height="100%" width="300px" >
            	 	  <p>
                   <div class="panel panel-default" align="left">
-                     <div class="panel-heading"><h2>Login</h2></div>
+                     <div class >
                      <div class="panel-body">
                         <?php
                           if(isset($_SESSION['msg'])){
@@ -34,7 +34,7 @@
                               </br>
                               <input type="password" class="form-control" name="pwd" placeholder="Password" required>
                               </br>
-                              <button type="submit" class="btn btn-default">Submit</button>
+                              <button type="submit" class="btn btn-default">Login</button>
                               {{ csrf_field() }}
                            </div>
                         </form>
