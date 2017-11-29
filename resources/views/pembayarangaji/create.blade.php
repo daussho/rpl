@@ -19,7 +19,7 @@
             <input type="text" class="form-control" id="nip" placeholder="Masukkan NIP e.g. 12345" name="nip_bayar">
           </div>
           <div class="form-group">
-            <label for="bulan">Bulan:</label>
+            <label for="bulan">Tanggal:</label>
             <input type="text" class="form-control" id="bulan" placeholder="Masukkan digit bulan e.g. 3" name="bulan">
           </div>
           <div class="form-group">
