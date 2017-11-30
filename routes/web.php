@@ -54,6 +54,12 @@ Route::get('/pembayarangaji/totalbiaya/{id}','PembayaranGajiController@totalbiay
 
 Route::get('/pembayarangaji/indexusers','PembayaranGajiController@indexuser');
 
+Route::get('/pembayarangaji/reset','PembayaranGajiController@resetPembayaranGaji');
+
+Route::get('/pembayarangaji/laporan','PembayaranGajiController@export');
+
+//Route::get('/pembayarangaji/laporan','PembayaranGajiController@export');
+
 Route::get('/tes', function () {
     return view('tes');
 });
