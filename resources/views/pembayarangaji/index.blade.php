@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
    <head>
@@ -20,6 +21,8 @@
          <h2><center>Data Pembayaran Gaji Pegawai</center></h2>
          <br><br> 
          <button type="button" class="btn btn-info" onclick="window.location='{{ url("pembayarangaji/reset") }}'">+ Reset</button>
+         <br><br> 
+         <button type="button" class="btn btn-info" onclick="window.location='{{ url("pembayarangaji/laporan") }}'">+ Download Tabel Pembayaran</button>
          <br><br>      
          <table class="table table-striped" >
             <thead class="thead-inverse">
